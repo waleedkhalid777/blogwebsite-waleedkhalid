@@ -1,101 +1,247 @@
-import Image from "next/image";
+// src/app/page.tsx
+import HeroSection from '@/components/HeroSection'
+import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="bg-gray-100">
+      
+      <HeroSection
+        title="Welcome to MyBlog"
+        subtitle="Discover exciting articles on lifestyle, tech, and more. Stay informed and get inspired with our content."
+        imageUrl='/hero.webp'
+      />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Articles Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-gray-600 to-slate-600 text-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-6xl font-bold text-center mb-12"> Articles</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            {/* Featured Article 1 */}
+            <div className="bg-white rounded-xl shadow-xl overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl">
+              <Image
+                src="/image.jpeg"
+                alt="Featured content"
+                width={500}
+                height={300}
+                className="w-full h-64 object-cover"
+              />
+              <div className="p-8">
+                <h3 className="text-2xl font-semibold mb-3">Latest Articles</h3>
+                <p className="text-gray-700 mb-4">
+                  Discover our latest posts on technology, design, and more to keep you informed.
+                </p>
+                <Link
+                  href="/blog"
+                  className="inline-block bg-orange-400 text-black px-5 py-3 rounded-lg hover:bg-blue-700 transition-colors font-bold"
+                >
+                  Read More
+                </Link>
+              </div>
+            </div>
+
+            {/* Featured Article 2 */}
+            <div className="bg-white rounded-xl shadow-xl overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl">
+              <Image
+                src="/article2.jpeg"
+                alt="About Us"
+                width={500}
+                height={300}
+                className="w-full h-64 object-cover"
+              />
+              <div className="p-8">
+                <h3 className="text-2xl font-semibold mb-3">About Us</h3>
+                <p className="text-gray-700 mb-4">
+                  Learn about our mission and the team behind this creative project.
+                </p>
+                <Link
+                  href="/about"
+                  className="inline-block bg-orange-400 text-black px-5 py-3 rounded-lg hover:bg-blue-700 transition-colors font-bold"
+                >
+                  Learn More
+                </Link>
+              </div>
+            </div>
+
+            {/* Featured Article 3 */}
+            <div className="bg-white rounded-xl shadow-xl overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl">
+              <Image
+                src="/article3.jpeg"
+                alt="Explore Content"
+                width={500}
+                height={300}
+                className="w-full h-64 object-cover"
+              />
+              <div className="p-8">
+                <h3 className="text-2xl font-semibold mb-3">Explore Content</h3>
+                <p className="text-gray-700 mb-4">
+                  Dive deeper into our curated content and uncover new perspectives.
+                </p>
+                <Link
+                  href="/content"
+                  className="inline-block bg-orange-400 text-black px-5 py-3 rounded-lg hover:bg-blue-700 transition-colors font-bold"
+                >
+                  Explore
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Featured Posts Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-100">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-12">Featured Posts</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            {/* Featured Post 1 */}
+            <div className="bg-white rounded-xl shadow-xl overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl  hover:bg-[#fdd3cb]">
+              <Image
+                src="/feature1.jpeg"
+                alt="Featured Post 1"
+                width={500}
+                height={300}
+                className="w-full h-64 object-cover"
+              />
+              <div className="p-8">
+                <h3 className="text-2xl font-semibold mb-3">SEO Optimization</h3>
+                <p className="text-gray-700 mb-4">
+                Ensure titles are optimized with relevant keywords for search engine visibility.
+                </p>
+                <Link
+                  href="/blog/post-1"
+                  className="inline-block  bg-orange-400 text-black px-5 py-3 rounded-lg hover:bg-blue-700 transition-colors font-bold"
+                >
+                  Read More
+                </Link>
+              </div>
+            </div>
+
+            {/* Featured Post 2 */}
+            <div className="bg-white rounded-xl shadow-xl overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl  hover:bg-[#fdd3cb]">
+              <Image
+                src="/feature2.jpg"
+                alt="Featured Post 2"
+                width={500}
+                height={300}
+                className="w-full h-64 object-cover"
+              />
+              <div className="p-8">
+                <h3 className="text-2xl font-semibold mb-3">Action-Oriented</h3>
+                <p className="text-gray-700 mb-4">
+                Use action verbs like “discover,” “learn,” “explore,” or “how to” to engage your audience and create curiosity.
+
+
+                </p>
+                <Link
+                  href="/blog/post-2"
+                  className="inline-block bg-orange-400 text-black px-5 py-3 rounded-lg hover:bg-blue-700 transition-colors font-bold"
+                >
+                  Read More
+                </Link>
+              </div>
+            </div>
+
+            {/* Featured Post 3 */}
+            <div className="bg-white rounded-xl shadow-xl overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl hover:bg-[#fdd3cb]">
+              <Image
+                src="/feature3.webp"
+                alt="Featured Post 3"
+                width={500}
+                height={300}
+                className="w-full h-64 object-cover"
+              />
+              <div className="p-8">
+                <h3 className="text-2xl font-semibold mb-3">Dynamic Display</h3>
+                <p className="text-gray-700 mb-4">
+                Display titles dynamically on the homepage, category pages, and archives.
+                </p>
+                <Link
+                  href="/blog/post-3"
+                  className="inline-block bg-orange-400 text-black px-5 py-3 rounded-lg hover:bg-blue-700 transition-colors font-bold"
+                >
+                  Read More
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Categories Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-200">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-12">Browse Categories</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
+            {/* Category 1 */}
+            <div className="bg-white rounded-xl shadow-xl overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl  hover:bg-[#fdd3cb]">
+              <div className="p-8">
+                <h3 className="text-2xl font-semibold mb-3">Tech</h3>
+                <p className="text-gray-700 mb-4">
+                  Dive into the latest trends, tips, and news in technology.
+                </p>
+                <Link
+                  href="/category/tech"
+                  className="inline-block bg-orange-400 text-black px-5 py-3 rounded-lg hover:bg-blue-700 transition-colors font-bold"
+                >
+                  Explore Tech
+                </Link>
+              </div>
+            </div>
+
+            {/* Category 2 */}
+            <div className="bg-white rounded-xl shadow-xl overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl  hover:bg-[#fdd3cb]">
+              <div className="p-8">
+                <h3 className="text-2xl font-semibold mb-3">Lifestyle</h3>
+                <p className="text-gray-700 mb-4">
+                  Read posts on wellness, travel, and daily living tips.
+                </p>
+                <Link
+                  href="/category/lifestyle"
+                  className="inline-block bg-orange-400 text-black px-5 py-3 rounded-lg hover:bg-blue-700 transition-colors font-bold"
+                >
+                  Explore Lifestyle
+                </Link>
+              </div>
+            </div>
+
+            {/* Category 3 */}
+            <div className="bg-white rounded-xl shadow-xl overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl hover:bg-[#fdd3cb]">
+              <div className="p-8">
+                <h3 className="text-2xl font-semibold mb-3">Design</h3>
+                <p className="text-gray-700 mb-4">
+                  Find inspiration and tips for web and graphic design.
+                </p>
+                <Link
+                  href="/category/design"
+                  className="inline-block bg-orange-400 text-black px-5 py-3 rounded-lg hover:bg-blue-700 transition-colors font-bold"
+                >
+                  Explore Design
+                </Link>
+              </div>
+            </div>
+
+            {/* Category 4 */}
+            <div className="bg-white rounded-xl shadow-xl overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl hover:bg-[#fdd3cb]">
+              <div className="p-8">
+                <h3 className="text-2xl font-semibold mb-3">Health</h3>
+                <p className="text-gray-700 mb-4">
+                  Stay healthy with expert advice on fitness, nutrition, and mental health.
+                </p>
+                <Link
+                  href="/category/health"
+                  className="inline-block bg-orange-400 text-black px-5 py-3 rounded-lg hover:bg-blue-700 transition-colors font-bold"
+                >
+                  Explore Health
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    
     </div>
-  );
+  )
 }
